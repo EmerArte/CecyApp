@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "252582810701",
+    "firebase_url": "https://cecyapp-b6b65.firebaseio.com",
+    "project_id": "cecyapp-b6b65",
+    "storage_bucket": "cecyapp-b6b65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252582810701:android:5aac9de600bbeaacbcf804",
+        "android_client_info": {
+          "package_name": "com.example.cecyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252582810701-7cco7qcd4b1vba9jsm78kuekm47ueqm4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cecyapp",
+            "certificate_hash": "c6f73330bd5f23c76b359ecfa56ec27ce274c913"
+          }
+        },
+        {
+          "client_id": "252582810701-4hmi3krirel2vkthll19b2h5ss83hnn2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2BSK3daYc9SdCe7Ylfi5ebP0ryvgR7a4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252582810701-4hmi3krirel2vkthll19b2h5ss83hnn2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
