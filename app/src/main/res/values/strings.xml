@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CecyApp</string>
+    <string name="id">IDENTIFICACIÓN</string>
+    <string name="nombres">NOMBRES</string>
+    <string name="apellidos">APELLIDOS</string>
+    <string name="direccion">DIRECCIÓN</string>
+    <string name="correo">CORREO</string>
+    <string name="contraseña">CONTRASEÑA</string>
+    <string name="celular">CELULAR</string>
+    <string name="edad">EDAD</string>
+    <string name="registrar">Registrar</string>
 </resources>

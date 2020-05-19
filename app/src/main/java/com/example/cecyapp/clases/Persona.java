@@ -6,14 +6,16 @@ public class Persona {
     private String nombres;
     private String apellidos;
     private String direccion;
+    private String correo;
     private String celular;
     private  int edad;
 
-    public Persona(int id, String nombres, String apellidos, String direccion, String celular, int edad) {
+    public Persona(int id, String nombres, String apellidos, String direccion, String correo, String celular, int edad) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.direccion = direccion;
+        this.correo=correo;
         this.celular = celular;
         this.edad = edad;
     }
@@ -22,6 +24,7 @@ public class Persona {
         nombres="";
         apellidos="";
         direccion="";
+        correo="";
         celular="";
         edad=0;
     }
@@ -56,6 +59,14 @@ public class Persona {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getCelular() {
