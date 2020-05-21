@@ -1,5 +1,6 @@
 package com.example.cecyapp.layout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cecyapp.MainActivity;
 import com.example.cecyapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,10 +22,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Collection;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+
 
 public class FormularioRegistro extends AppCompatActivity {
     //se crea el spiner para la selección de tipo de usario
@@ -98,26 +101,58 @@ public class FormularioRegistro extends AppCompatActivity {
     }
 
     private void registrarUsario() {
-        //se registra el usario por medio de database
+        //se registra el usario por medio de la identificación de firabase
         mAuth.createUserWithEmailAndPassword(correo, contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isComplete()){
+                    //si selecciona al cliente, se crea la tabla
                    if(spinner.getSelectedItemPosition()==1){
                        Map<String , Object> map = new HashMap<>();
                        map.put("nombres",nombre);
                        map.put("id",id);
                        map.put("apellidos",apellidos);
                        map.put("edad",edad);
+                       map.put("direccion",direccion);
                        map.put("correo",correo);
                        map.put("contraseña",contraseña);
                        map.put("celular",celular);
 
                        String idObt = mAuth.getCurrentUser().getUid();
-                      // mDatabase.child("cliente").child(idObt).setValue();
-                   }else if(spinner.getSelectedItemPosition()==2){
+                       //se agregan los datos a la database realtime
+                      mDatabase.child("cliente").child(idObt).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                          @Override
+                          public void onComplete(@NonNull Task<Void> task) {
+                              //se abre el activity de login
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                //se cierra el activity del registro para evitar que el usario que se registro vuelva
+                                finish();
+                          }
+                      });
+                   }else{
+                       //se muestro un mensaje de error, si lo hay
+                       Toast.makeText(getApplicationContext(),"por favor intente nuevamente", Toast.LENGTH_LONG).show();
+                   }if(spinner.getSelectedItemPosition()==2){
+                       //se repite lo que se uso el cliente, caso de la modista
+                       Map<String , Object> map = new HashMap<>();
+                       map.put("nombres",nombre);
+                       map.put("id",id);
+                       map.put("apellidos",apellidos);
+                       map.put("edad",edad);
+                       map.put("direccion",direccion);
+                       map.put("correo",correo);
+                       map.put("contraseña",contraseña);
+                       map.put("celular",celular);
                        String idObte = mAuth.getCurrentUser().getUid();
-                       //mDatabase.child("modista").child(idObte).setValue();
+                       mDatabase.child("modista").child(idObte).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                           @Override
+                           public void onComplete(@NonNull Task<Void> task) {
+                               startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                               finish();
+                           }
+                       });
+                   }else{
+                       Toast.makeText(getApplicationContext(),"por favor intente nuevamente", Toast.LENGTH_LONG).show();
                    }
                    //
                 }

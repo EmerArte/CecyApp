@@ -9,4 +9,6 @@
     <string name="celular">CELULAR</string>
     <string name="edad">EDAD</string>
     <string name="registrar">Registrar</string>
+    <string name="obligatorio">*Campo Requerido</string>
+    <string name="olvidocontraseña">¿Olvido su contraseña?</string>
 </resources>
