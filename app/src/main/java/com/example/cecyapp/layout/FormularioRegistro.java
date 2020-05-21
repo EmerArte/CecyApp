@@ -19,8 +19,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.HashMap;
@@ -34,6 +37,7 @@ public class FormularioRegistro extends AppCompatActivity {
     private EditText etId, etNombres, etApellidos, etEdad, etDireccion, etContraseña, etCorreo, etCelular;
     //se agrega el boton de registro
     private Button btnRegistrar;
+    private Button btnIrLogin;
 
     //variable de datos qe se registraran
     private int id=0, edad=0;
@@ -58,6 +62,7 @@ public class FormularioRegistro extends AppCompatActivity {
         etCelular = (EditText) findViewById(R.id.etCelular);
         spinner = (Spinner) findViewById(R.id.spinnerTipoUser);
         btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
+        btnIrLogin = (Button) findViewById(R.id.btnIrLogin);
 
         String [] opciones= {"Tipo de usario", "Cliente", "Modista"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
@@ -96,6 +101,12 @@ public class FormularioRegistro extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplicationContext(), "¡Error! S e encuentra algun campo vació, por favor llenar todos",Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+        btnIrLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
     }
@@ -160,4 +171,46 @@ public class FormularioRegistro extends AppCompatActivity {
 
         });
     }
-}
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //se valida que el usario ya haya iniciado sesión
+        if(mAuth.getCurrentUser()!=null){
+            //startActivity(new Intent(getApplicationContext(), )); se abre la otra activity
+            String id=mAuth.getCurrentUser().getUid();
+            mDatabase.child("cliente").child(id).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()){
+                        //se abre la interfaz cliente
+                        startActivity(new Intent(getApplicationContext(), LayoutCliente.class));
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            mDatabase.child("modista").child(id).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                    if(dataSnapshot1.exists()){
+                        //se abre la interfaz modista
+                        startActivity(new Intent(getApplicationContext(), LayoutModista.class));
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+    }
+    }
+

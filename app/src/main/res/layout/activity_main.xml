@@ -21,7 +21,7 @@ tools:context=".MainActivity">
     app:srcCompat="@drawable/logo" />
 
 <com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/lay.usuario"
+    android:id="@+id/tvUsario"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textColorHint="@color/textColor"
@@ -55,7 +55,7 @@ tools:context=".MainActivity">
     app:hintEnabled="true"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/lay.usuario">
+    app:layout_constraintTop_toBottomOf="@+id/tvUsario">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/imput.contra"
@@ -96,25 +96,25 @@ tools:context=".MainActivity">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
-<Button
-    android:id="@+id/but.iniciarsesion"
-    style="@style/Widget.MaterialComponents.Button"
-    android:layout_width="280dp"
-    android:layout_height="48dp"
-    android:layout_marginTop="16dp"
-    android:fontFamily="@font/rubik_regular"
-    android:text="Iniciar Sesión"
-    android:textAlignment="center"
-    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-    android:textColor="@color/textColor"
-    android:textSize="18sp"
-    android:textStyle="bold"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.501"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tv.olvidarpass" />
+    <Button
+        android:id="@+id/but.iniciarsesion"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/rubik_regular"
+        android:text="Iniciar Sesión"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv.olvidarpass" />
 
-<TextView
+    <TextView
     android:id="@+id/tv.registro"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
