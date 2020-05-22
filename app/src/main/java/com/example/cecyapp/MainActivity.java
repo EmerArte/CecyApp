@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tvRegistro;
+    private TextView  tvRegistro;
     private TextView tvCorreoEle;
     private TextView tvContraseña;
     private Button btnSesion;
@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvRegistro = (TextView) findViewById(R.id.tv_registro);
-        tvCorreoEle = (TextView) findViewById(R.id.tvUsario);
-        tvContraseña = (TextView) findViewById(R.id.textInputLayout);
+        tvCorreoEle = (TextView) findViewById(R.id.imput_usuario);
+        tvContraseña = (TextView) findViewById(R.id.imput_contra);
         btnSesion = (Button) findViewById(R.id.but_iniciarsesion);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
