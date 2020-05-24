@@ -52,7 +52,7 @@ public class FormularioRegistro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formulario_registro);
         //se inician los
-        etId= (EditText) findViewById(R.id.etId);
+        etId= (EditText) findViewById(R.id.lay_etId);
         etNombres = (EditText) findViewById(R.id.etNombreRegistro);
         etApellidos = (EditText) findViewById(R.id.etApellido);
         etEdad = (EditText) findViewById(R.id.etEdad);

@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/secondaryColor"
+    android:backgroundTint="@color/secondaryColor">
 
     <EditText
         android:id="@+id/etContraseña"
@@ -19,30 +21,17 @@
         app:layout_constraintVertical_bias="0.6" />
 
     <EditText
-        android:id="@+id/etId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:ems="10"
-        android:hint="@string/id"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064" />
-
-    <EditText
         android:id="@+id/etNombreRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_marginStart="124dp"
         android:ems="10"
         android:hint="@string/nombres"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.192" />
 
     <EditText
         android:id="@+id/etCelular"
@@ -145,5 +134,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.43" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lay.etId"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv.regis">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etId"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:fontFamily="@font/rubik_regular"
+            android:hint="Identificación"
+            android:inputType="text"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/secondaryTextColor"
+            app:errorEnabled="true"
+            app:helperText="@string/obligatorio"
+            app:helperTextEnabled="true"
+            app:hintAnimationEnabled="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv.regis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/rubik_regular"
+        android:text="Iniciar Sesión"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

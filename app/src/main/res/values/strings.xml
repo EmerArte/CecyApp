@@ -18,4 +18,12 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="nombres">Nombre</string>
+    <string name="celular">Celular</string>
+    <string name="registrar">Registrarse</string>
+    <string name="correo">E-Mail</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="edad">Edad</string>
+    <string name="direccion">Dirección</string>
 </resources>
